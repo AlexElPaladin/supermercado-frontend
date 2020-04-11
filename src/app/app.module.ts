@@ -9,6 +9,7 @@ import { GestionComponent } from './gestion/gestion.component';
 import { GestionProductosComponent } from './gestion-productos/gestion-productos.component';
 import { HttpClientModule } from "@angular/common/http";
 import { ProductosService } from "./productos.service";
+import { ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -30,7 +31,8 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [ProductosService],
   

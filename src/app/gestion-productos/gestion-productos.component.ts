@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductosService } from "../productos.service";
+import { Producto } from "../clases/Producto";
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-gestion-productos',
@@ -8,12 +10,31 @@ import { ProductosService } from "../productos.service";
 })
 export class GestionProductosComponent implements OnInit {
 
-  constructor(private productService: ProductosService) { 
+  productos: Producto[];
+  productoFormulario:any;
 
-    productService.obtenerProductos();
+  constructor(private productService: ProductosService, private formBuilder: FormBuilder) { 
+
+    this.productoFormulario = this.formBuilder.group({
+      nombre: [""],
+      precio_unitario: [""],
+      categoria: [""],
+      stock: [""]
+    });
+    //productService.insertarProducto("Coca-cola", 3.5, "bebidas", 4);
   }
 
   ngOnInit(): void {
+    
+    this.productService.obtenerProductos().subscribe(x => {
+      this.productos = x as Producto[];
+
+    });
+
+  }
+
+  insertarProducto() {
+    console.log(this.productoFormulario.value);
   }
 
 }
