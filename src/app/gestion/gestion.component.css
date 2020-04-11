@@ -1,0 +1,18 @@
+.opciones__eleccion:nth-child(1) .opciones__banner {
+    background-image: url("../../assets/images/supermarket-949913_1920.jpg");
+  }
+  
+  .opciones__eleccion:nth-child(2) .opciones__banner {
+    background-image: url("../../assets/images/shopping-2613984_1920.jpg");
+  }
+  
+
+  .opciones__eleccion:nth-child(1) .opciones__banner::after {
+    content: "CLIENTES";
+    background-color: rgba(72, 119, 195, .6);
+  }
+  
+  .opciones__eleccion:nth-child(2) .opciones__banner::after {
+    content: "PRODUCTOS";
+    background-color: rgba(71, 155, 70, .6);
+  }

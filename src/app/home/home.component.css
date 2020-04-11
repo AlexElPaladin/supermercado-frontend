@@ -1,0 +1,26 @@
+.opciones__eleccion:nth-child(1) .opciones__banner {
+    background-image: url("../../assets/images/apples.jpg");
+  }
+  
+  .opciones__eleccion:nth-child(2) .opciones__banner {
+    background-image: url("../../assets/images/student-849825_1920.jpg");
+  }
+  
+  .opciones__eleccion:nth-child(3) .opciones__banner {
+    background-image: url("../../assets/images/accounting-analytics-balance-black-and-white-209224.jpg");
+  }
+
+  .opciones__eleccion:nth-child(1) .opciones__banner::after {
+    content: "TIENDA";
+    background-color: rgba(72, 119, 195, .6);
+  }
+  
+  .opciones__eleccion:nth-child(2) .opciones__banner::after {
+    content: "ONLINE";
+    background-color: rgba(71, 155, 70, .6);
+  }
+  
+  .opciones__eleccion:nth-child(3) .opciones__banner::after {
+    content: "GESTION";
+    background-color: rgba(148, 88, 153, .6);
+  }
