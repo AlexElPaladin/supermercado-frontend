@@ -18,6 +18,7 @@ export class GestionProductosComponent implements OnInit {
   constructor(private productService: ProductosService, private formBuilder: FormBuilder) { 
 
     this.productoFormulario = this.formBuilder.group({
+      _id: [""],
       nombre: [""],
       precio_unitario: [""],
       categoria: [""],
@@ -51,14 +52,51 @@ export class GestionProductosComponent implements OnInit {
   }
 
   editarProducto(codigo: string) {
+    console.log("Código controller" + codigo);
+    this.productoSelected = this.productoFormulario.value;
+    this.productService.editarProducto(this.productoSelected.nombre, this.productoSelected.precio_unitario, this.productoSelected.categoria, this.productoSelected.stock, codigo).subscribe(
+      res => {
+        this.obtenerProductos();
+      },
+      error => {
+        this.obtenerProductos();
+      },
+      () => {
+        
+      });
+  
+  }
+
+  decidirAccion(codigo?: string) {
+    if(this.accionRealizando === "Insertar") {
+      this.insertarProducto();
+      console.log("Insercion");
+    }else {
+      console.log(codigo);
+      this.editarProducto(codigo);
+      console.log("Edición");
+    }
+  }
+
+  prepararFormularioParaEditarProducto(codigo: string) {
     console.log("Editar - " + codigo);
     this.buscarProductoPorId(codigo);
     this.actualizarValoresFormulario();
     this.accionRealizando = "Editar";
   }
 
+  prepararFormularioParaInsertarProducto() {
+    this.resetearValoresFormulario();
+    this.accionRealizando = "Insertar";
+  }
+
+  resetearValoresFormulario() {
+    this.productoFormulario.setValue({_id: 0, nombre: "", precio_unitario: 0, categoria: "", stock: 0});
+  }
+
   eliminarProducto(codigo: string) {
     console.log("Eliminar - " + codigo);
+    console.log("Antes");
     //No se la razón pero al eliminar devuelve un error pero la función de eliminado funciona, así que hago un catch para que me refresque los
     //datos a pesar de que falle
     this.productService.eliminarProducto(codigo).subscribe(
@@ -71,6 +109,8 @@ export class GestionProductosComponent implements OnInit {
       () => {
         
       });
+    
+    
   }
 
   buscarProductoPorId(codigo: string) {
@@ -82,6 +122,6 @@ export class GestionProductosComponent implements OnInit {
   }
 
   actualizarValoresFormulario() {
-    this.productoFormulario.setValue({nombre: this.productoSelected.nombre, precio_unitario: this.productoSelected.precio_unitario, categoria: this.productoSelected.categoria, stock: this.productoSelected.stock});
+    this.productoFormulario.setValue({_id: this.productoSelected._id, nombre: this.productoSelected.nombre, precio_unitario: this.productoSelected.precio_unitario, categoria: this.productoSelected.categoria, stock: this.productoSelected.stock});
   }
 }

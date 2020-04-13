@@ -1,5 +1,7 @@
 
-<form (submit)="insertarProducto()" [formGroup]="productoFormulario" class="formulario">
+<form (submit)="decidirAccion(codigo.value)" [formGroup]="productoFormulario" class="formulario">
+    <div>Codigo</div>
+    <input type="text" readonly formControlName="_id" #codigo>
     <div class="formulario__bloque">
         <label for="">Nombre</label>
         <input type="text" formControlName="nombre">
@@ -19,7 +21,7 @@
     <button>{{accionRealizando}} producto</button>
 </form>
 
-
+<button (click)="prepararFormularioParaInsertarProducto()">Agregar producto</button>
 
 <div *ngFor="let producto of productos">
 
@@ -27,7 +29,7 @@
     <p>Precio: {{producto["precio_unitario"]}}</p>
     <p>Categoria: {{producto["categoria"]}}</p>
     <p>Stock: {{producto["stock"]}}</p>
-    <button (click)="editarProducto(producto['_id'])">Editar</button>
+    <button (click)="prepararFormularioParaEditarProducto(producto['_id'])">Editar</button>
     <button (click)="eliminarProducto(producto['_id'])">Eliminar</button>
 
 </div>

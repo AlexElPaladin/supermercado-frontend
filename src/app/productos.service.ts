@@ -27,8 +27,10 @@ export class ProductosService {
 
   }
 
-  editarProducto() {
-    
+  editarProducto(nombre: string, precio_unitario: number, categoria: string, stock: number, codigo: string) {
+    console.log("Model " + codigo);
+    let producto = new Producto(nombre, precio_unitario, categoria, stock);
+    return this.http.put("http://localhost:3000/productos/"+codigo, {"_id": codigo, "nombre": nombre, "precio_unitario": precio_unitario, "categoria": categoria, "stock": stock});
   }
 
   eliminarProducto(codigo: string) {
@@ -36,4 +38,20 @@ export class ProductosService {
     
   }
 
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
