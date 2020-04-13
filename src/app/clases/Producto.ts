@@ -14,4 +14,7 @@ export class Producto {
     categoria: string;
     stock: number;
     
+    toString() {
+        return this.nombre + " " + this.precio_unitario + " " + this.categoria + " " + this.stock;
+    }
 }

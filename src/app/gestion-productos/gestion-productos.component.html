@@ -16,13 +16,18 @@
         <label for="">Stock</label>
         <input type="text" formControlName="stock">
     </div>
-    <button>Insertando un producto</button>
+    <button>{{accionRealizando}} producto</button>
 </form>
 
 
 
 <div *ngFor="let producto of productos">
 
-    {{producto["nombre"]}}
+    <h4>{{producto["nombre"]}}</h4>
+    <p>Precio: {{producto["precio_unitario"]}}</p>
+    <p>Categoria: {{producto["categoria"]}}</p>
+    <p>Stock: {{producto["stock"]}}</p>
+    <button (click)="editarProducto(producto['_id'])">Editar</button>
+    <button (click)="eliminarProducto(producto['_id'])">Eliminar</button>
 
 </div>

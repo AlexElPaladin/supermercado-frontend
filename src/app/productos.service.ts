@@ -19,13 +19,21 @@ export class ProductosService {
     
   }
 
-  insertarProducto(nombre: string, precio_unitario: number, categoria: string, stock: number):void {
-    console.log("Over here");
+  insertarProducto(nombre: string, precio_unitario: number, categoria: string, stock: number) {
+    
     let producto = new Producto(nombre, precio_unitario, categoria, stock);
-    console.log(producto.nombre);
-    this.http.post<Producto>("http://localhost:3000/productos", producto).subscribe();
+    console.log("Produ" + producto.nombre);
+    return this.http.post<Producto>("http://localhost:3000/productos", producto);
 
   }
 
+  editarProducto() {
+    
+  }
+
+  eliminarProducto(codigo: string) {
+    return this.http.delete("http://localhost:3000/productos/"+codigo);
+    
+  }
 
 }
