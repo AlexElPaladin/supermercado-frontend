@@ -2,20 +2,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 * {
     font-family: 'Open Sans', sans-serif;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
 }
 
 html, .root {
     font-size: 18px;
-    line-height: 23px;
   }
   body, .article {
     font-size: 18px;
-    line-height: 23px;
-    
   }
   h1, .h1 {
     font-size: 76px;
-    line-height: 92px;
     text-align: center;
   }
   h2, .h2 {
@@ -24,32 +23,14 @@ html, .root {
   }
   h3, .h3 {
     font-size: 29px;
-    line-height: 46px;
-    margin-top: 23px;
-    margin-bottom: 0px;
   }
   h4, .h4 {
     font-size: 18px;
-    line-height: 23px;
-    margin-top: 23px;
-    margin-bottom: 0px;
   }
   h5, .h5 {
     font-size: 18px;
-    line-height: 23px;
-    margin-top: 23px;
-    margin-bottom: 0px;
   }
-  p, ul, ol, pre, table, blockquote {
-    margin-top: 0px;
-    margin-bottom: 23px;
-  }
-  ul ul, ol ol, ul ol, ol ul {
-    margin-top: 0px;
-    margin-bottom: 0px;
-  }
-  
-  /* Let's make sure all's aligned */
+
   hr, .hr {
     border: 1px solid;
     margin: -1px 0;
@@ -69,7 +50,78 @@ html, .root {
     bottom: -0.25em;
   }
 
+
+.body {
+  margin-top: 5vh;
+}
+
+.informacion__titulo, .productos__titulo {
+  font-size: 2rem;
+}
+
+.formulario__input {
+  border: none;
+  border-bottom: .6px solid darkgray;
+  outline: none;
+  padding: .5rem;
+
+}
   
+.formulario__bloque {
+
+  margin: 1vw;
+}
+
+.formulario__bloque > * {
+  margin-right: .6vw;
+}
+
+.informacion__boton, .formulario__boton, .productos__boton {
+  padding: .6rem 1.5vw;
+  border: none;
+  border-radius: 10px;
+  margin-top: 1rem;
+  margin-right: .5rem;
+  color: white;
+  cursor: pointer;
+}
+
+.formulario__boton--transparente, .productos__boton--transparente {
+  background-color: white;
+  color: black;
+  border: 1px solid lightgray;
+}
+
+.formulario__boton--verde {
+  background-color: darkgreen;
+}
+
+.informacion__boton--azul {
+  background-color: darkblue;
+}
+  
+.informacion__boton--rojo {
+  background-color: darkred;
+}
+
+.body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.informacion {
+  
+  min-width: 40vw;
+  height: 80vh;
+  overflow-y: scroll;
+  position: relative;
+}
+
+.informacion__item {
+  margin: 5vh 0;
+}
+
 .opciones {
   width: 80vw;
   display: flex;
@@ -95,9 +147,6 @@ html, .root {
   display: block;
   background-size: cover;
 }
-
-
-
 
 .opciones__h2 {
   font-size: 3rem;

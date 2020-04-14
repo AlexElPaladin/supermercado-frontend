@@ -10,12 +10,17 @@ import { GestionProductosComponent } from './gestion-productos/gestion-productos
 import { HttpClientModule } from "@angular/common/http";
 import { ProductosService } from "./productos.service";
 import { ReactiveFormsModule } from '@angular/forms';
+import { GestionClientesComponent } from './gestion-clientes/gestion-clientes.component';
+import { ClienteService } from './cliente.service';
+import { CompraOnlineComponent } from './compra-online/compra-online.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'tienda', component: TiendaComponent },
   { path: 'gestion', component: GestionComponent },
   { path: 'gestion-productos', component: GestionProductosComponent },
+  { path: 'gestion-clientes', component: GestionClientesComponent },
+  { path: 'online', component: CompraOnlineComponent },
   { path: '',   redirectTo: '/home', pathMatch: 'full' }
 ]
 
@@ -26,7 +31,9 @@ const appRoutes: Routes = [
     HomeComponent,
     TiendaComponent,
     GestionComponent,
-    GestionProductosComponent
+    GestionProductosComponent,
+    GestionClientesComponent,
+    CompraOnlineComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +41,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [ProductosService],
+  providers: [ProductosService, ClienteService],
   
   bootstrap: [AppComponent]
   

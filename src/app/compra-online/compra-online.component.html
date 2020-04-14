@@ -1,0 +1,14 @@
+
+
+<div class="productos">
+    <div *ngFor="let producto of productos" class="productos__item">
+        <h4 class="productos__titulo">{{producto["nombre"]}}</h4>
+        <p class="productos__subtitulo"><b>Categoria: </b>{{producto["categoria"]}}</p>
+        <p class="productos__subtitulo"><b>Precio unitario: </b> {{producto["precio_unitario"]}}</p>
+        <p class="productos__subtitulo"><b>Stock: </b> {{producto["stock"]}}</p>
+        <button class="productos__boton productos__boton--transparente">Añadir al carrito</button>
+    </div>
+</div>
+
+        
+      

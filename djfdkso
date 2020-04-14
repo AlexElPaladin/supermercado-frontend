@@ -1,0 +1,29 @@
+[33mcommit 1efe84a55f9ce4703531e99e2ab757b6469b682e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Alejandro López <alopemar@dedvolvo.lan>
+Date:   Mon Apr 13 16:29:01 2020 +0200
+
+    Terminada la lógica de Gestión de productos
+
+[33mcommit db27c3bc2c72e56363b1c55adf14d18d2dfd8bf3[m
+Author: Alejandro López <alopemar@dedvolvo.lan>
+Date:   Mon Apr 13 15:30:18 2020 +0200
+
+    Finalizando la gestión de productos, solo falta la opción editar
+
+[33mcommit b971bfdde743a13bd95fbff8446079164575c61d[m
+Author: Alejandro López <alopemar@dedvolvo.lan>
+Date:   Sat Apr 11 18:12:42 2020 +0200
+
+    Creado servicio Angular y conectando con servidor node js, comenzando con el formulario de gestión de productos
+
+[33mcommit a5c5602f6ec0aa31d1563e0335669970c8f8bc98[m
+Author: Alejandro López <alopemar@dedvolvo.lan>
+Date:   Sat Apr 11 15:40:52 2020 +0200
+
+    Creado proyecto angular, creado el enrutamiento, realizado la home page
+
+[33mcommit e9ee6e98d94e523a1a808039e4573ff30706c06a[m
+Author: Alejandro López <alopemar@dedvolvo.lan>
+Date:   Fri Apr 10 17:06:16 2020 +0200
+
+    initial commit

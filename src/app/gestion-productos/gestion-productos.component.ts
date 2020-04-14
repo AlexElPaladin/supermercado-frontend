@@ -109,8 +109,6 @@ export class GestionProductosComponent implements OnInit {
       () => {
         
       });
-    
-    
   }
 
   buscarProductoPorId(codigo: string) {

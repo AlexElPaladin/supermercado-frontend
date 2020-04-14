@@ -1,35 +1,39 @@
 
-<form (submit)="decidirAccion(codigo.value)" [formGroup]="productoFormulario" class="formulario">
-    <div>Codigo</div>
-    <input type="text" readonly formControlName="_id" #codigo>
-    <div class="formulario__bloque">
-        <label for="">Nombre</label>
-        <input type="text" formControlName="nombre">
-    </div>
-    <div class="formulario__bloque">
-        <label for="">Precio</label>
-        <input type="number" formControlName="precio_unitario">
-    </div>
-    <div class="formulario__bloque">
-        <label for="">Categoria</label>
-        <input type="text" formControlName="categoria">
-    </div>
-    <div class="formulario__bloque">
-        <label for="">Stock</label>
-        <input type="text" formControlName="stock">
-    </div>
-    <button>{{accionRealizando}} producto</button>
-</form>
+<div class="body">
+    <form [formGroup]="productoFormulario" class="formulario">
+        <div class="formulario__bloque">
+            <label for="">Codigo</label>
+            <input type="text" readonly formControlName="_id" #codigo class="formulario__input">
+        </div>
+        <div class="formulario__bloque">
+            <label for="">Nombre</label>
+            <input type="text" formControlName="nombre" class="formulario__input">
+        </div>
+        <div class="formulario__bloque">
+            <label for="">Precio</label>
+            <input type="number" formControlName="precio_unitario" class="formulario__input"> 
+        </div>
+        <div class="formulario__bloque">
+            <label for="">Categoria</label>
+            <input type="text" formControlName="categoria" class="formulario__input">
+        </div>
+        <div class="formulario__bloque">
+            <label for="">Stock</label>
+            <input type="text" formControlName="stock" class="formulario__input">
+        </div>
+        <button (click)="decidirAccion(codigo.value)" class="formulario__boton formulario__boton--transparente">{{accionRealizando}} producto</button>
+        <button (click)="prepararFormularioParaInsertarProducto()" class="formulario__boton formulario__boton--verde">Agregar producto</button>
+    </form>
 
-<button (click)="prepararFormularioParaInsertarProducto()">Agregar producto</button>
-
-<div *ngFor="let producto of productos">
-
-    <h4>{{producto["nombre"]}}</h4>
-    <p>Precio: {{producto["precio_unitario"]}}</p>
-    <p>Categoria: {{producto["categoria"]}}</p>
-    <p>Stock: {{producto["stock"]}}</p>
-    <button (click)="prepararFormularioParaEditarProducto(producto['_id'])">Editar</button>
-    <button (click)="eliminarProducto(producto['_id'])">Eliminar</button>
-
+    <div class="informacion">
+        <div *ngFor="let producto of productos" class="informacion__item">
+            <h4 class="informacion__titulo">{{producto["nombre"]}}</h4>
+            <p class="informacion__subtitulo"><b>Categoria: </b>{{producto["categoria"]}}</p>
+            <p class="informacion__subtitulo"><b>Precio unitario: </b> {{producto["precio_unitario"]}}</p>
+            <p class="informacion__subtitulo"><b>Stock: </b> {{producto["stock"]}}</p>
+            <button (click)="prepararFormularioParaEditarProducto(producto['_id'])" class="informacion__boton informacion__boton--azul">Editar</button>
+            <button (click)="eliminarProducto(producto['_id'])" class="informacion__boton informacion__boton--rojo">Eliminar</button>
+        </div>
+    </div>
 </div>
+
