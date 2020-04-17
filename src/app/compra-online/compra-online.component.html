@@ -1,14 +1,17 @@
+<h1> Elija sus productos y se los enviaremos </h1>
 
+<button (click)="irCarrito()">Carrito {{cantidadCompraCarrito}}</button>
 
 <div class="productos">
     <div *ngFor="let producto of productos" class="productos__item">
+        <img [src]="producto['imagen']" alt="">
         <h4 class="productos__titulo">{{producto["nombre"]}}</h4>
         <p class="productos__subtitulo"><b>Categoria: </b>{{producto["categoria"]}}</p>
         <p class="productos__subtitulo"><b>Precio unitario: </b> {{producto["precio_unitario"]}}</p>
         <p class="productos__subtitulo"><b>Stock: </b> {{producto["stock"]}}</p>
-        <button class="productos__boton productos__boton--transparente">Añadir al carrito</button>
+        <button class="productos__boton productos__boton--transparente" (click)="anadirCarrito(producto['_id'], boton)" #boton>Añadir al carrito</button>
     </div>
 </div>
 
-        
+    
       

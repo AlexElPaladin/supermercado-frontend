@@ -1,0 +1,33 @@
+<div class="body">
+    <form [formGroup]="clienteFormulario" class="formulario">
+        <h2>Introduzca sus datos para la compra online</h2>
+        <div class="formulario__bloque">
+            <label for="">Nombre</label>
+            <input type="text" formControlName="nombre" class="formulario__input" required>
+        </div>
+        <div class="formulario__bloque">
+            <label for="">Apellidos</label>
+            <input type="text" formControlName="apellidos" class="formulario__input" required>
+        </div>
+        <div class="formulario__bloque">
+            <label for="">Email</label>
+            <input type="email" formControlName="email" class="formulario__input" required>
+        </div>
+        <div class="formulario__bloque">
+            <label for="">Contrasena</label>
+            <input type="text" formControlName="contrasena" class="formulario__input" required>
+        </div>
+        <div class="formulario__bloque">
+            <label for="">Movil</label>
+            <input type="text" formControlName="movil" class="formulario__input" required>
+        </div>
+        <div class="formulario__bloque">
+            <label for="">Dirección</label>
+            <input type="text" formControlName="direccion" class="formulario__input" required>
+        </div>
+        <div class="formulario__bloque">
+            <label for="">Dirección entrega</label>
+            <input type="text" formControlName="direccion_entrega" class="formulario__input" required>
+        </div>
+        <button (click)="insertarCliente()" class="formulario__boton formulario__boton--transparente">Confirmar datos</button>
+    </form>

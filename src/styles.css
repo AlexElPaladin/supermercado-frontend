@@ -166,8 +166,6 @@ html, .root {
   
 }
 
-
-
 .opciones_enlace {
   display: block; 
   min-width: 100%;
@@ -180,4 +178,14 @@ html, .root {
   max-width: 100%;
   margin: auto;
   margin-top: 2rem;
+}
+
+img {
+  width: 12vw;
+  height: 12vh;
+  object-fit: cover;
+}
+
+.productos {
+  margin-bottom: 10vh;
 }

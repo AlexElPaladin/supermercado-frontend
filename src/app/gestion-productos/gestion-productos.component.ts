@@ -22,7 +22,8 @@ export class GestionProductosComponent implements OnInit {
       nombre: [""],
       precio_unitario: [""],
       categoria: [""],
-      stock: [""]
+      stock: [""],
+      imagen: [""]
     });
 
     this.accionRealizando = "Insertar";
@@ -45,7 +46,7 @@ export class GestionProductosComponent implements OnInit {
   insertarProducto() {
     this.productoSelected = this.productoFormulario.value;
     console.log(this.productoSelected.nombre);
-    this.productService.insertarProducto(this.productoSelected.nombre, this.productoSelected.precio_unitario, this.productoSelected.categoria, this.productoSelected.stock).subscribe(() => {
+    this.productService.insertarProducto(this.productoSelected.nombre, this.productoSelected.precio_unitario, this.productoSelected.categoria, this.productoSelected.stock, this.productoSelected.imagen).subscribe(() => {
       this.obtenerProductos();
     });
     
@@ -54,7 +55,7 @@ export class GestionProductosComponent implements OnInit {
   editarProducto(codigo: string) {
     console.log("Código controller" + codigo);
     this.productoSelected = this.productoFormulario.value;
-    this.productService.editarProducto(this.productoSelected.nombre, this.productoSelected.precio_unitario, this.productoSelected.categoria, this.productoSelected.stock, codigo).subscribe(
+    this.productService.editarProducto(this.productoSelected.nombre, this.productoSelected.precio_unitario, this.productoSelected.categoria, this.productoSelected.stock, this.productoSelected.imagen, codigo).subscribe(
       res => {
         this.obtenerProductos();
       },
@@ -91,7 +92,7 @@ export class GestionProductosComponent implements OnInit {
   }
 
   resetearValoresFormulario() {
-    this.productoFormulario.setValue({_id: 0, nombre: "", precio_unitario: 0, categoria: "", stock: 0});
+    this.productoFormulario.setValue({_id: 0, nombre: "", precio_unitario: 0, categoria: "", stock: 0, imagen: ""});
   }
 
   eliminarProducto(codigo: string) {
@@ -120,6 +121,6 @@ export class GestionProductosComponent implements OnInit {
   }
 
   actualizarValoresFormulario() {
-    this.productoFormulario.setValue({_id: this.productoSelected._id, nombre: this.productoSelected.nombre, precio_unitario: this.productoSelected.precio_unitario, categoria: this.productoSelected.categoria, stock: this.productoSelected.stock});
+    this.productoFormulario.setValue({_id: this.productoSelected._id, nombre: this.productoSelected.nombre, precio_unitario: this.productoSelected.precio_unitario, categoria: this.productoSelected.categoria, stock: this.productoSelected.stock, imagen: this.productoSelected.imagen});
   }
 }

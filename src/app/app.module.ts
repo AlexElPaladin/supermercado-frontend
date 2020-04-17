@@ -13,6 +13,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { GestionClientesComponent } from './gestion-clientes/gestion-clientes.component';
 import { ClienteService } from './cliente.service';
 import { CompraOnlineComponent } from './compra-online/compra-online.component';
+import { CarritoComponent } from './carrito/carrito.component';
+import { IniciarSesionComponent } from './iniciar-sesion/iniciar-sesion.component';
+import { SoloRegistroComponent } from './solo-registro/solo-registro.component';
+import { TiendasComponent } from './tiendas/tiendas.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -21,7 +25,12 @@ const appRoutes: Routes = [
   { path: 'gestion-productos', component: GestionProductosComponent },
   { path: 'gestion-clientes', component: GestionClientesComponent },
   { path: 'online', component: CompraOnlineComponent },
+  { path: 'carrito', component: CarritoComponent },
+  { path: 'iniciar-sesion', component: IniciarSesionComponent },
+  { path: 'solo-registro', component: SoloRegistroComponent },
   { path: '',   redirectTo: '/home', pathMatch: 'full' }
+  
+  
 ]
 
 
@@ -33,7 +42,11 @@ const appRoutes: Routes = [
     GestionComponent,
     GestionProductosComponent,
     GestionClientesComponent,
-    CompraOnlineComponent
+    CompraOnlineComponent,
+    CarritoComponent,
+    IniciarSesionComponent,
+    SoloRegistroComponent,
+    TiendasComponent
   ],
   imports: [
     BrowserModule,

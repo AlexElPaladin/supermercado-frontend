@@ -1,0 +1,18 @@
+<h1> Datos de inicio de sesión para finalizar con la compra </h1>
+
+<div class="body">
+    <form [formGroup]="iniciarSesionFormulario" class="formulario">
+        <div class="formulario__bloque">
+            <label for="">Nombre</label>
+            <input type="text" formControlName="nombre" class="formulario__input">
+        </div>
+        <div class="formulario__bloque">
+            <label for="">Contraseña</label>
+            <input type="text" formControlName="contrasena" class="formulario__input">
+        </div>
+        <button (click)="comprobarDatos()" class="formulario__boton formulario__boton--transparente">Confirmar datos y comprar</button>
+        <a routerLink="/solo-registro" routerLinkActive="active">Registrarse si aún no tiene cuenta</a>
+    </form>
+</div>
+
+<h2>{{mensaje}}</h2>

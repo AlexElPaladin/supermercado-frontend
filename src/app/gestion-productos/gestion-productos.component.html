@@ -21,12 +21,17 @@
             <label for="">Stock</label>
             <input type="text" formControlName="stock" class="formulario__input">
         </div>
+        <div class="formulario__bloque">
+            <label for="">Imagen</label>
+            <input type="text" formControlName="imagen" class="formulario__input">
+        </div>
         <button (click)="decidirAccion(codigo.value)" class="formulario__boton formulario__boton--transparente">{{accionRealizando}} producto</button>
         <button (click)="prepararFormularioParaInsertarProducto()" class="formulario__boton formulario__boton--verde">Agregar producto</button>
     </form>
-
+    
     <div class="informacion">
         <div *ngFor="let producto of productos" class="informacion__item">
+            <img [src]="producto['imagen']" alt="">
             <h4 class="informacion__titulo">{{producto["nombre"]}}</h4>
             <p class="informacion__subtitulo"><b>Categoria: </b>{{producto["categoria"]}}</p>
             <p class="informacion__subtitulo"><b>Precio unitario: </b> {{producto["precio_unitario"]}}</p>
