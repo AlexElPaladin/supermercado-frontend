@@ -16,7 +16,7 @@ import { CompraOnlineComponent } from './compra-online/compra-online.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { IniciarSesionComponent } from './iniciar-sesion/iniciar-sesion.component';
 import { SoloRegistroComponent } from './solo-registro/solo-registro.component';
-import { TiendasComponent } from './tiendas/tiendas.component';
+
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -45,8 +45,7 @@ const appRoutes: Routes = [
     CompraOnlineComponent,
     CarritoComponent,
     IniciarSesionComponent,
-    SoloRegistroComponent,
-    TiendasComponent
+    SoloRegistroComponent
   ],
   imports: [
     BrowserModule,

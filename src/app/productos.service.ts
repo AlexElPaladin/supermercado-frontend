@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Producto } from "./clases/Producto";
 import { CarritoComponent } from './carrito/carrito.component';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -9,8 +10,10 @@ import { CarritoComponent } from './carrito/carrito.component';
 })
 export class ProductosService {
   carrito: Producto[];
-  constructor(private http: HttpClient) { 
+  precioTotal: number;
 
+  constructor(private router: Router, private http: HttpClient) { 
+    
   }
  
   obtenerProductos() {
@@ -37,6 +40,17 @@ export class ProductosService {
     return this.http.delete("http://localhost:3000/productos/"+codigo);
     
   }
+
+  finalizarCompra(codigoCliente?: string) {
+    let nuevoStock;
+    this.carrito.forEach(element => {
+      nuevoStock = element["stock"] - element["unidades"];
+      this.editarProducto(element["nombre"], element["precio_unitario"], element["categoria"], nuevoStock,  element["imagen"], element["_id"]).subscribe(x => {
+        console.log(x);
+      });
+    });
+  }
+
 
 }
 

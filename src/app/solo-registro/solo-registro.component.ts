@@ -32,7 +32,7 @@ export class SoloRegistroComponent implements OnInit {
     let cliente = this.clienteFormulario.value;
     this.clienteServicio.insertarCliente(cliente).subscribe(x => {
       console.log(x);
-      this.route.navigate(["iniciar-sesion"]);
+      this.route.navigate(["home"]);
     });
   }
 

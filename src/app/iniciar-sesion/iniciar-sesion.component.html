@@ -1,6 +1,6 @@
-<h1> Datos de inicio de sesión para finalizar con la compra </h1>
+<h1>Confirmar compra junto con sus credenciales</h1>    
 
-<div class="body">
+<div class="body-inicio-sesion">
     <form [formGroup]="iniciarSesionFormulario" class="formulario">
         <div class="formulario__bloque">
             <label for="">Nombre</label>
@@ -12,7 +12,19 @@
         </div>
         <button (click)="comprobarDatos()" class="formulario__boton formulario__boton--transparente">Confirmar datos y comprar</button>
         <a routerLink="/solo-registro" routerLinkActive="active">Registrarse si aún no tiene cuenta</a>
+        <p>{{mensaje}}</p>
     </form>
+
+<div class="ticket">
+    <h2>Ticket de compra</h2>
+    <h4>Fecha: {{fecha | date : 'dd-MM-yyyy'}} a las {{fecha | date : 'h:mm'}}</h4>
+    <div *ngFor="let producto of ticket" class="ticket__producto">
+        <b>{{producto.nombre}}</b>
+        <p>Unidades: {{producto.unidades}}</p>
+        <p>Precio unitario: {{producto.precio_unitario}}€</p>
+        <p>Precio total: {{producto.precio_unitario * producto.unidades}}€</p>
+    </div>
+    <p><b class="ticket__precio-global">Precio de toda la compra: {{precioTotal}}€</b></p>
 </div>
 
-<h2>{{mensaje}}</h2>
+</div>

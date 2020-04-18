@@ -24,24 +24,27 @@ export class CarritoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  agregarCantidad(evento, input, precio: number) {
-    console.log(evento);
-    console.log(input);
-    console.log("Precio " + precio);
-    this.importeTotal += precio;
-  }
+
 
   continuar() {
 
-    let inputs = document.getElementsByClassName("input-cantidades");
+    let inputs = document.getElementsByClassName("input-cantidades"),
+    names  = [].map.call(inputs, function( input ) {
+        return input.value;
+    });
 
-    for (let i = 0; i < inputs.length; i++) {
-      const element = inputs[i];
-      console.log(element.textContent);
+    for (let i = 0; i < names.length; i++) {
+      const unidades = names[i];
+      this.carrito[i].unidades = unidades;
+      this.importeTotal += unidades * this.carrito[i].precio_unitario; 
       
     }
 
-    //this.route.navigate(["iniciar-sesion"]);
+    this.productoServicio.precioTotal = this.importeTotal;
+
+    this.productoServicio.carrito = this.carrito;
+
+    this.route.navigate(["iniciar-sesion"]);
   }
 
 }

@@ -92,17 +92,18 @@ html, .root {
   border: 1px solid lightgray;
 }
 
-.formulario__boton--verde {
+.formulario__boton--verde, .productos__boton--verde {
   background-color: darkgreen;
 }
 
-.informacion__boton--azul {
+.informacion__boton--azul, .productos__boton--azul {
   background-color: darkblue;
 }
   
-.informacion__boton--rojo {
+.informacion__boton--rojo, .productos__boton--rojo {
   background-color: darkred;
 }
+
 
 .body {
   display: flex;
@@ -113,9 +114,10 @@ html, .root {
 .informacion {
   
   min-width: 40vw;
-  height: 80vh;
+  height: 50vh;
   overflow-y: scroll;
   position: relative;
+  margin-bottom: 10vh;
 }
 
 .informacion__item {
@@ -188,4 +190,34 @@ img {
 
 .productos {
   margin-bottom: 10vh;
+}
+
+.body-tienda, .body-inicio-sesion {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 80vw;
+  margin: auto;
+  margin-top: 2vh;
+}
+
+.ticket__producto {
+  margin-top: 2vh;
+}
+
+.ticket__precio-global {
+  margin-top: 3vh !important;
+}
+
+
+.productos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    width: 90vw;
+    margin: auto;
+    margin-top: 5vh;
+}
+
+.productos__item {
+    margin-top: 5vh;
 }

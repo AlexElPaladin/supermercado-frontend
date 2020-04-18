@@ -1,15 +1,15 @@
 
 <h1> Elija las cantidades deseadas </h1>
-<div id="unidades-form">
-    <div *ngFor="let producto of carrito">
+<div class="productos">
+    <div *ngFor="let producto of carrito" class="productos__item">
+        <img [src]="producto['imagen']" alt="">
         <h3>{{producto["nombre"]}}</h3>
         <p>{{producto["precio_unitario"]}}€ la unidad</p>
         <p>{{producto["stock"]}} en stock</p>
         <div>
             <label for="">Unidades: </label>
-            <input type="number" (change)="agregarCantidad($event, input, producto['precio_unitario'])" #input class="input-cantidades">
+            <input type="number" class="input-cantidades">
         </div>
     </div>
-    <h3>Importe total {{importeTotal}}€</h3>
-    <button (click)="continuar()">Continuar</button>
 </div>
+<button (click)="continuar()" class="productos__boton productos__boton--verde">Continuar</button>

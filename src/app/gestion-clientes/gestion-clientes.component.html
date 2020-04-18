@@ -40,6 +40,7 @@
     <div class="informacion">
         <div *ngFor="let cliente of clientes" class="informacion__item">
             <h4 class="informacion__titulo">{{cliente["nombre"]}} {{cliente["apellidos"]}}</h4>
+            <p class="informacion__subtitulo"><b>Código: </b>{{cliente["_id"]}}</p>
             <p class="informacion__subtitulo"><b>Email: </b>{{cliente["email"]}}</p>
             <p class="informacion__subtitulo"><b>Movil: </b> {{cliente["movil"]}}</p>
             <p class="informacion__subtitulo"><b>Direccion: </b> {{cliente["direccion"]}}</p>
