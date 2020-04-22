@@ -1,0 +1,19 @@
+
+<div *ngFor="let venta of ventas" class="venta">
+    <div class="venta__informacion">
+        <h2>Venta</h2>
+        <p><b>Fecha:</b> {{venta["fecha"]}}</p>
+        <p><b>Precio total: </b>{{venta["precioTotal"]}}€</p>
+        <p><b>Cliente: </b>{{venta["cliente"]}}</p>
+    </div>
+    
+    <div class="productos">
+        <div *ngFor="let producto of venta['productos']" class="productos_item">
+            <img [src]="producto['imagen']" alt="">
+            <h4 class="informacion__titulo">{{producto["nombre"]}}</h4>
+            <p class="informacion__subtitulo"><b>Categoria: </b>{{producto["categoria"]}}</p>
+            <p class="informacion__subtitulo"><b>Precio unitario: </b> {{producto["precio_unitario"]}}</p>
+            <p class="informacion__subtitulo"><b>Unidades compradas: </b> {{producto["unidades"]}}</p>
+        </div>
+    </div>
+</div>

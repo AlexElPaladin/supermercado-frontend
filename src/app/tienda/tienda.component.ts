@@ -10,14 +10,14 @@ export class TiendaComponent implements OnInit {
 
   productos: Producto[];
   ticket: Producto[] = [];
-  unidades: any[] = [];
-  precioTotal: number = 0;
-  fecha: Date;
+  precioCompraTotal: number = 0;
+  fechaCompra: Date;
   metodoDePago: string = "Pago en efectivo";
+  mensaje: string = "";
 
   constructor(private productService: ProductosService) {
     this.obtenerProductos();
-    this.fecha = new Date();
+    this.fechaCompra = new Date();
   }
 
   ngOnInit(): void {
@@ -30,30 +30,25 @@ export class TiendaComponent implements OnInit {
     });
   }
 
-  registrarProducto(codigo, unidades) {
+  agregarProductoAlTicket(codigo, unidades) {
     console.log("Antes del for");
     this.productos.forEach(element => {
       if (element["_id"] === codigo) {
         element["unidades"] = unidades;
         this.ticket.push(element);
-        this.precioTotal += unidades * element["precio_unitario"];
+        this.precioCompraTotal += unidades * element["precio_unitario"];
       }
     });
 
-    console.log(this.unidades);
     console.log(this.ticket);
   }
 
   finalizarCompra(codigoCliente: string) {
     console.log("Código " + codigoCliente);
     this.productService.carrito = this.ticket;
-    if(codigoCliente === "") {
-      this.productService.finalizarCompra();
-    }else {
-      this.productService.finalizarCompra(codigoCliente);
-    }
-    
-    
+    this.comprobarMetodoPago(codigoCliente);
+    this.productService.finalizarCompra(codigoCliente, this.metodoDePago, this.precioCompraTotal);
+    this.mensaje = "Compra realizada con éxito";
   }
 
   comprobarMetodoPago(codigoCliente: string) {
@@ -61,7 +56,9 @@ export class TiendaComponent implements OnInit {
       this.metodoDePago = "Pago en efectivo";
     }else {
       this.metodoDePago = "Pago con tarjeta";
+      
     }
   }
+
   
 }

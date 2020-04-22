@@ -1,7 +1,7 @@
 <div class="body-tienda">
     <div class="ticket">
         <h2>Ticket de compra</h2>
-        <h4>Fecha: {{fecha | date : 'dd-MM-yyyy'}} a las {{fecha | date : 'h:mm'}}</h4>
+        <h4>Fecha: {{fechaCompra | date : 'dd-MM-yyyy'}} a las {{fechaCompra | date : 'h:mm'}}</h4>
         <h5>{{metodoDePago}}</h5>
         <div *ngFor="let producto of ticket" class="ticket__producto">
             <b>{{producto.nombre}}</b>
@@ -9,7 +9,7 @@
             <p>Precio unitario: {{producto.precio_unitario}}€</p>
             <p>Precio total: {{producto.precio_unitario * producto.unidades}}€</p>
         </div>
-        <p><b class="ticket__precio-global">Precio de toda la compra: {{precioTotal}}€</b></p>
+        <p><b class="ticket__precio-global">Precio de toda la compra: {{precioCompraTotal}}€</b></p>
     </div>
     <div>
         <div class="informacion">
@@ -22,7 +22,7 @@
                 <p class="informacion__subtitulo"><b>Stock: </b> {{producto["stock"]}}</p>
             </div>
         </div>
-
+        
         <div> 
             <p>Si el cliente va a pagar con tarjeta escriba el código</p>
             <small>En caso de no tener cuenta registrelo aquí <a routerLink="/gestion-clientes" routerLinkActive="active">Clientes</a></small>
@@ -40,8 +40,8 @@
                 <label for="" class="formulario__bloque">Unidades </label>
                 <input type="text" class="formulario__input" #unidades>
             </div>
-            
-            <button (click)="registrarProducto(codigo.value, unidades.value)" class="formulario__boton formulario__boton--transparente">Registrar producto</button>
+            <h3>{{mensaje}}</h3>
+            <button (click)="agregarProductoAlTicket(codigo.value, unidades.value)" class="formulario__boton formulario__boton--transparente">Registrar producto</button>
             <button (click)="finalizarCompra(codigoCliente.value)" class="formulario__boton formulario__boton--verde">Finalizar compra</button>
             
         </div>

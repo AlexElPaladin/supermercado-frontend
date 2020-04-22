@@ -16,12 +16,15 @@ import { CompraOnlineComponent } from './compra-online/compra-online.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { IniciarSesionComponent } from './iniciar-sesion/iniciar-sesion.component';
 import { SoloRegistroComponent } from './solo-registro/solo-registro.component';
+import { VentasService } from './ventas.service';
+import { VentasComponent } from './ventas/ventas.component';
 
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'tienda', component: TiendaComponent },
   { path: 'gestion', component: GestionComponent },
+  { path: 'ventas', component: VentasComponent },
   { path: 'gestion-productos', component: GestionProductosComponent },
   { path: 'gestion-clientes', component: GestionClientesComponent },
   { path: 'online', component: CompraOnlineComponent },
@@ -45,7 +48,8 @@ const appRoutes: Routes = [
     CompraOnlineComponent,
     CarritoComponent,
     IniciarSesionComponent,
-    SoloRegistroComponent
+    SoloRegistroComponent,
+    VentasComponent
   ],
   imports: [
     BrowserModule,

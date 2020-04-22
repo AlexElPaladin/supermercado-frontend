@@ -11,7 +11,7 @@ import { FormBuilder } from '@angular/forms';
 export class GestionProductosComponent implements OnInit {
 
   productos: Producto[];
-  productoSelected: Producto;
+  productoElegido: Producto;
   productoFormulario:any;
   accionRealizando: string;
 
@@ -44,9 +44,9 @@ export class GestionProductosComponent implements OnInit {
   }
 
   insertarProducto() {
-    this.productoSelected = this.productoFormulario.value;
-    console.log(this.productoSelected.nombre);
-    this.productService.insertarProducto(this.productoSelected.nombre, this.productoSelected.precio_unitario, this.productoSelected.categoria, this.productoSelected.stock, this.productoSelected.imagen).subscribe(() => {
+    this.productoElegido = this.productoFormulario.value;
+    console.log(this.productoElegido.nombre);
+    this.productService.insertarProducto(this.productoElegido.nombre, this.productoElegido.precio_unitario, this.productoElegido.categoria, this.productoElegido.stock, this.productoElegido.imagen).subscribe(() => {
       this.obtenerProductos();
     });
     
@@ -54,8 +54,8 @@ export class GestionProductosComponent implements OnInit {
 
   editarProducto(codigo: string) {
     console.log("Código controller" + codigo);
-    this.productoSelected = this.productoFormulario.value;
-    this.productService.editarProducto(this.productoSelected.nombre, this.productoSelected.precio_unitario, this.productoSelected.categoria, this.productoSelected.stock, this.productoSelected.imagen, codigo).subscribe(
+    this.productoElegido = this.productoFormulario.value;
+    this.productService.editarProducto(this.productoElegido.nombre, this.productoElegido.precio_unitario, this.productoElegido.categoria, this.productoElegido.stock, this.productoElegido.imagen, codigo).subscribe(
       res => {
         this.obtenerProductos();
       },
@@ -115,12 +115,12 @@ export class GestionProductosComponent implements OnInit {
   buscarProductoPorId(codigo: string) {
     this.productos.forEach(element => {
       if (element["_id"] === codigo) {
-        this.productoSelected = element;
+        this.productoElegido = element;
       }
     });
   }
 
   actualizarValoresFormulario() {
-    this.productoFormulario.setValue({_id: this.productoSelected._id, nombre: this.productoSelected.nombre, precio_unitario: this.productoSelected.precio_unitario, categoria: this.productoSelected.categoria, stock: this.productoSelected.stock, imagen: this.productoSelected.imagen});
+    this.productoFormulario.setValue({_id: this.productoElegido._id, nombre: this.productoElegido.nombre, precio_unitario: this.productoElegido.precio_unitario, categoria: this.productoElegido.categoria, stock: this.productoElegido.stock, imagen: this.productoElegido.imagen});
   }
 }

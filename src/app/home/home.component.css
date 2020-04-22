@@ -10,6 +10,10 @@
     background-image: url("../../assets/images/accounting-analytics-balance-black-and-white-209224.jpg");
   }
 
+  .opciones__eleccion:nth-child(4) .opciones__banner {
+    background-image: url("../../assets/images/photography-of-one-us-dollar-banknotes-545064.jpg");
+  }
+
   .opciones__eleccion:nth-child(1) .opciones__banner::after {
     content: "TIENDA";
     background-color: rgba(72, 119, 195, .6);
@@ -23,4 +27,9 @@
   .opciones__eleccion:nth-child(3) .opciones__banner::after {
     content: "GESTION";
     background-color: rgba(148, 88, 153, .6);
+  }
+
+  .opciones__eleccion:nth-child(4) .opciones__banner::after {
+    content: "VENTAS";
+    background-color: rgba(232, 229, 105, .6);
   }

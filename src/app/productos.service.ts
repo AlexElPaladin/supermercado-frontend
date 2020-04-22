@@ -3,7 +3,8 @@ import { HttpClient } from "@angular/common/http";
 import { Producto } from "./clases/Producto";
 import { CarritoComponent } from './carrito/carrito.component';
 import { Router } from '@angular/router';
-
+import { VentasService } from './ventas.service';
+import { Venta } from "./clases/Venta";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class ProductosService {
   carrito: Producto[];
   precioTotal: number;
 
-  constructor(private router: Router, private http: HttpClient) { 
+  constructor(private router: Router, private http: HttpClient, private ventas: VentasService) { 
     
   }
  
@@ -41,7 +42,7 @@ export class ProductosService {
     
   }
 
-  finalizarCompra(codigoCliente?: string) {
+  finalizarCompra(codigoCliente: string, metodoDePago: string, precioTotal: number) {
     let nuevoStock;
     this.carrito.forEach(element => {
       nuevoStock = element["stock"] - element["unidades"];
@@ -49,7 +50,14 @@ export class ProductosService {
         console.log(x);
       });
     });
+    let venta = new Venta(codigoCliente, metodoDePago, precioTotal, new Date().toString(), this.carrito);
+    this.ventas.registrarVenta(venta).subscribe(x => {
+      console.log(x);
+    });
+    
   }
+
+
 
 
 }

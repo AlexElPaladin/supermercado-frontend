@@ -127,6 +127,7 @@ html, .root {
 .opciones {
   width: 80vw;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   margin: auto;
 }
@@ -135,7 +136,7 @@ html, .root {
   display: block;
   width: 25vw;
   min-height: 30vh;
-
+  margin-bottom: 20vh;
 }
 
 .opciones__banner {
@@ -180,6 +181,7 @@ html, .root {
   max-width: 100%;
   margin: auto;
   margin-top: 2rem;
+
 }
 
 img {
